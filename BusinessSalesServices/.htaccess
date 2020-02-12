@@ -1,0 +1,10 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+php_value max_execution_time 300
+
+# map neat URL to internal URL
+RewriteRule ^sales/generate/   RestController.php?req=generatesample [nc,qsa]
+RewriteRule ^sales/list/   RestController.php?req=all [nc,qsa]
+RewriteRule ^sales/checkUpdate/([0-9]+)/$   RestController.php?req=checkUpdates&dbversion=$1 [nc,qsa]
